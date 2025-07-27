@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
     // === LOADING SCREEN ===
     const loader = document.getElementById('loader');
-    const glitchText = document.getElementById('glitch-text'); // NEW
+    const glitchText = document.getElementById('glitch-text');
     const mainContent = document.getElementById('main-content');
 
-    const glitchFinal = "Loading your world...";
-    const glitchChars = '!@#$%^&*()-_=+[]{}|;:,.<>?/~';
+    const glitchFinal = "Welcome to my portfolio";
+    const glitchChars = '#$%@!&';
 
     function glitchEffect(text, element, duration = 2000, interval = 60) {
         let frame = 0;
@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const glitchInterval = setInterval(() => {
             for (let i = 0; i < textArray.length; i++) {
-                if (frame / totalFrames > i / textArray.length) {
+                // Only show original letter in the final few frames
+                if (frame > totalFrames - 5) {
                     textArray[i] = originalText[i];
                 } else {
                     textArray[i] = glitchChars[Math.floor(Math.random() * glitchChars.length)];
@@ -27,19 +28,17 @@ document.addEventListener('DOMContentLoaded', function () {
             if (frame >= totalFrames) {
                 clearInterval(glitchInterval);
                 element.textContent = text;
+                loader.classList.add('fade-out');
+
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    mainContent.style.display = 'block';
+                }, 500);
             }
         }, interval);
     }
 
     glitchEffect(glitchFinal, glitchText);
-
-    setTimeout(() => {
-        loader.classList.add('fade-out');
-        setTimeout(() => {
-            loader.style.display = 'none';
-            mainContent.style.display = 'block'; // Show portfolio after loader
-        }, 600);
-    }, 2600); // Loader stays a bit longer to finish glitch
 
     // === MOBILE MENU ===
     const hamburger = document.querySelector('.hamburger');

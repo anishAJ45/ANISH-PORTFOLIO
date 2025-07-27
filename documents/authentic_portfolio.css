@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.bebas {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -21,10 +27,12 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+  font-family: 'Bebas Neue', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
-    background: var(--bg-white);
+    background: linear-gradient(90deg, #000 0%, #111 35%, #00ff4c 50%, #111 65%, #000 100%);
+    min-height: 100vh;
 }
 
 .container {
@@ -39,10 +47,10 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: black; /* Changed from rgba(0, 0, 0, 0.95) */
-    backdrop-filter: none; /* Optional: remove blur effect */
+    background: #000; /* Solid black */
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
 }
 
 .nav-container {
@@ -56,9 +64,13 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 900;
+    color: #00ff4c;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px #00ff4c, 0 0 24px #000;
+    font-family: 'Inter', monospace;
+    transition: color 0.3s;
 }
 
 .nav-menu {
@@ -94,15 +106,13 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 120px 0 80px;
-    background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-gray) 100%);
+    padding: 160px 0 120px; /* Increase top/bottom padding */
 }
-
 .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 3rem;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 4rem; /* Space between text and profile */
 }
 
 .hero h1 {
@@ -144,13 +154,17 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary-color);
-    color:  black;
+    background: #00ff4c;
+    color: #000;
+    box-shadow: 0 0 8px #00ff4c88;
+    font-weight: 700;
+    border: none;
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(-1px);
+    background: #1DB954;
+    color: #fff;
+    box-shadow: 0 0 16px #00ff4c;
 }
 
 .btn-secondary {
@@ -165,12 +179,16 @@ body {
 }
 
 .profile-pic {
-    width: 100%;
+    width: 300px;
     height: 300px;
+    max-width: 90vw;
+    max-height: 90vw;
     object-fit: cover;
-    border-radius: 1234px;
-    border:10px solid var(--border-color);
-    /* box-shadow: var(--shadow-lg); */
+    border-radius: 50%;
+    border: 8px solid #00ff4c;
+    box-shadow: 0 0 32px #00ff4c88;
+    margin-left: 2rem;
+    display: block;
 }
 
 /* Sections */
@@ -179,11 +197,13 @@ section {
 }
 
 .section-title {
+    color: #E0E0E0; /* Light gray */
+    text-shadow: 0 2px 12px #000, 0 0 4px #00ff4c88;
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 900;
+    letter-spacing: 2px;
     text-align: center;
     margin-bottom: 1rem;
-    color: var(--text-primary);
 }
 
 .section-subtitle {
@@ -255,6 +275,25 @@ section {
     font-size: 1rem;
 }
 
+/* Add box styling to About Me, What I'm Learning, and Currently Working On sections */
+.about-text,
+.skills-simple,
+.currently-learning {
+    background: rgba(0,0,0,0.45);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 24px #00ff4c22;
+    border-left: 4px solid #00ff4c;
+}
+
+/* Optional: Make headings inside these boxes stand out */
+.skills-simple h3,
+.currently-learning h3 {
+    color: #00ff4c;
+    text-shadow: 0 2px 12px #000, 0 0 4px #00ff4c88;
+}
+
 /* Projects Section */
 .projects-grid {
     display: grid;
@@ -264,11 +303,11 @@ section {
 }
 
 .project-card {
-    background: var(--bg-white);
+    background: rgba(0,0,0,0.7);
     border-radius: 12px;
     padding: 2rem;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 24px #00ff4c22;
+    border: 1px solid #00ff4c44;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -339,7 +378,7 @@ section {
     max-width: 600px;
     margin: 0 auto;
     padding: 2rem;
-    background: var(--bg-light);
+    background: rgba(0,0,0,0.7);
     border-radius: 12px;
 }
 
@@ -373,9 +412,10 @@ section {
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: var(--bg-white);
+    background: rgba(0,0,0,0.7);
     border-radius: 8px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 24px #00ff4c22;
+    border: 1px solid #00ff4c44;
 }
 
 .contact-item i {
@@ -395,7 +435,7 @@ section {
 }
 
 .contact-note {
-    background: var(--bg-white);
+    background: rgba(0,0,0,0.7);
     padding: 1.5rem;
     border-radius: 8px;
     border-left: 4px solid var(--primary-color);
@@ -408,15 +448,51 @@ section {
 
 /* Footer */
 .footer {
-    background:black; 
-    color: #1DB954;
+    background: transparent !important;
+    color: #00ff4c;
     text-align: center;
     padding: 2rem 0;
+    text-shadow: 0 0 8px #00ff4c88;
 }
 
-.footer p {
-    margin: 0;
-    color: var(--text-light);
+/* Full-screen horizontal black-to-green-to-black gradient for loader and main content */
+
+/* Loader gradient */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(90deg, #000 0%, #111 35%, #00ff4c 50%, #111 65%, #000 100%);
+    color: #1DB954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    font-size: 2.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+
+    letter-spacing: 2px;
+    transition: opacity 0.5s;
+}
+
+/* Main site gradient */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: linear-gradient(90deg, #000 0%, #111 35%, #00ff4c 50%, #111 65%, #000 100%);
+    min-height: 100vh;
+}
+
+/* Section backgrounds transparent to show gradient */
+.hero,
+.about,
+.projects,
+contact,
+.footer {
+    background: transparent !important;
 }
 
 /* Responsive */
@@ -450,6 +526,7 @@ section {
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2rem; /* More gap for mobile */
     }
     
     .projects-grid {
@@ -459,69 +536,210 @@ section {
     .hero-buttons {
         justify-content: center;
     }
+    
+    .profile-pic {
+        height: 160px;
+        margin-top: 1.5rem;
+    }
 }
+
+@media (max-width: 900px) {
+    .hero-content {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero-text {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .container {
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    section {
+        padding: 40px 0;
+    }
+}
+
 /* === LOADER STYLES === */
 /* Loader Styles */
+/* loader.css */
 #loader {
-    background: black;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    z-index: 9999;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Modern black-green gradient */
+    background: radial-gradient(ellipse at 60% 40%, #0f3b2e 60%, #000 100%);
+    color: #1DB954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    font-size: 2.5rem;
+    font-family: 'Inter', monospace;
+    letter-spacing: 2px;
+    transition: opacity 0.5s;
 }
- Glitch effect 
-.glitch {
-    position: relative;
-    color: limegreen;
-    font-size: 3rem;
-    font-family: 'Exo 2', sans-serif;
-    font-weight: 600;
-    animation: glitch 2.5s linear infinite;
+/* === Other styles above === */
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #1DB954; }
+  50% { text-shadow: 0 0 20px #1DB954; }
+  100% { text-shadow: 0 0 5px #1DB954; }
 }
 
-.glitch:before,
-.glitch:after {
-    content: attr(data-text);
+#loader h1 {
+  animation: glow 2s infinite;
+}
+
+#loader h1 {
+  font-size: 4rem;
+  color: white;
+  font-family: 'Bebas Neue', sans-serif; /* ✅ Add this */
+  letter-spacing: 2px;
+}
+
+
+
+#loader.hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+}
+
+.glitch-text {
+    position: relative;
+    color: #1DB954;
+    font-size: 2.5rem;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 2px;
+    animation: glitch 1.5s infinite linear alternate;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: "#$%@!&";
     position: absolute;
     left: 0;
-    top: 0;
     width: 100%;
-    color: limegreen;
-    background: black;
+    color: #ff005a;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    clip: rect(0, 900px, 0, 0);
+    animation: glitch-symbols 1.5s infinite linear alternate;
 }
 
-.glitch:before {
+.glitch-text::after {
+    color: #00fff9;
     left: 2px;
-    text-shadow: -2px 0 red;
-    animation: glitchTop 2.5s infinite linear alternate-reverse;
+    top: 2px;
+    animation-delay: 0.5s;
 }
 
-.glitch:after {
-    left: -2px;
-    text-shadow: -2px 0 blue;
-    animation: glitchBottom 2.5s infinite linear alternate-reverse;
+@keyframes glitch {
+    0% { text-shadow: 2px 0 #ff005a, -2px 0 #00fff9; }
+    20% { text-shadow: -2px 0 #ff005a, 2px 0 #00fff9; }
+    40% { text-shadow: 2px 2px #ff005a, -2px -2px #00fff9; }
+    60% { text-shadow: -2px -2px #ff005a, 2px 2px #00fff9; }
+    80% { text-shadow: 2px 0 #ff005a, -2px 0 #00fff9; }
+    100% { text-shadow: 0 0 #ff005a, 0 0 #00fff9; }
 }
 
-@keyframes glitchTop {
-    0% { clip: rect(0, 9999px, 0, 0); }
-    10% { clip: rect(10px, 9999px, 50px, 0); }
-    20% { clip: rect(85px, 9999px, 140px, 0); }
-    30% { clip: rect(25px, 9999px, 90px, 0); }
-    100% { clip: rect(0, 9999px, 0, 0); }
+@keyframes glitch-symbols {
+    0% { clip: rect(0, 900px, 0, 0); }
+    10% { clip: rect(0, 900px, 100px, 0); }
+    20% { clip: rect(0, 900px, 0, 0); }
+    30% { clip: rect(0, 900px, 50px, 0); }
+    40% { clip: rect(0, 900px, 0, 0); }
+    100% { clip: rect(0, 900px, 0, 0); }
 }
 
-@keyframes glitchBottom {
-    0% { clip: rect(0, 9999px, 0, 0); }
-    10% { clip: rect(60px, 9999px, 90px, 0); }
-    20% { clip: rect(15px, 9999px, 65px, 0); }
-    30% { clip: rect(45px, 9999px, 80px, 0); }
-    100% { clip: rect(0, 9999px, 0, 0); }
+.hero-text {
+    background: rgba(0,0,0,0.45);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+/* Smooth black-to-green-to-black gradient for loader and body */
+body,
+#loader {
+    background: linear-gradient(90deg,
+        #000 0%,
+        #111 20%,
+        #1DB954 40%,
+        #009e2c 50%,
+        #1DB954 60%,
+        #111 80%,
+        #000 100%
+    );
+}
+
+/* Stylish font for loader text */
+#loader h1,
+.glitch-text {
+    color: #fff;
+    font-size: 4rem;
+    font-family: 'Orbitron', 'Inter', monospace, sans-serif; /* Orbitron is a stylish, techy font */
+    letter-spacing: 6px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow:
+        0 4px 32px #1DB954,
+        0 0 24px #000,
+        0 0 8px #00ff4c,
+        2px 2px 0 #111;
+    animation: loader-grand 1.2s infinite alternate;
+}
+
+/* Optional: Add a subtle scale animation for grand effect */
+@keyframes loader-grand {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive gradient and loader text for mobile */
+@media (max-width: 600px) {
+    body,
+    #loader {
+        background: linear-gradient(90deg,
+            #000 0%,
+            #111 10%,
+            #1DB954 35%,
+            #009e2c 50%,
+            #1DB954 65%,
+            #111 90%,
+            #000 100%
+        );
+    }
+
+    #loader h1,
+    .glitch-text {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+    .profile-pic {
+        width: 140px;
+        height: 140px;
+        max-width: 60vw;
+        max-height: 60vw;
+        margin: 0 auto 1.5rem auto;
+        border-radius: 50%;
+    }
+    .hero-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        justify-content: center;
+    }
 }
