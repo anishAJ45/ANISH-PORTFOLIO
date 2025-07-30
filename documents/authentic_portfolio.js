@@ -1,45 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // === LOADING SCREEN ===
-    const loader = document.getElementById('loader');
-    const glitchText = document.getElementById('glitch-text');
-    const mainContent = document.getElementById('main-content');
-
-    const glitchFinal = "Welcome to my portfolio";
-    const glitchChars = '#$%@!&';
-
-    function glitchEffect(text, element, duration = 2000, interval = 60) {
-        let frame = 0;
-        const totalFrames = Math.floor(duration / interval);
-        const originalText = text.split('');
-        const textArray = new Array(originalText.length).fill('');
-
-        const glitchInterval = setInterval(() => {
-            for (let i = 0; i < textArray.length; i++) {
-                // Only show original letter in the final few frames
-                if (frame > totalFrames - 5) {
-                    textArray[i] = originalText[i];
-                } else {
-                    textArray[i] = glitchChars[Math.floor(Math.random() * glitchChars.length)];
-                }
-            }
-            element.textContent = textArray.join('');
-            frame++;
-
-            if (frame >= totalFrames) {
-                clearInterval(glitchInterval);
-                element.textContent = text;
-                loader.classList.add('fade-out');
-
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                    mainContent.style.display = 'block';
-                }, 500);
-            }
-        }, interval);
-    }
-
-    glitchEffect(glitchFinal, glitchText);
-
     // === MOBILE MENU ===
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -96,28 +55,21 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(card);
     });
 
-    // === TYPING EFFECT FOR HERO TITLE WITH GLITCH ===
-    const heroTitle = document.querySelector('.hero h1');
-    const finalText = "Welcome to my portfolio";
+    // === SMOOTH SCROLLING FOR ALL INTERNAL LINKS ===
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    internalLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
 
-    if (heroTitle) {
-        heroTitle.textContent = '';
-
-        let i = 0;
-        function typeWithGlitch() {
-            if (i < finalText.length) {
-                const char = finalText.charAt(i);
-                const glitchChar = glitchChars[Math.floor(Math.random() * glitchChars.length)];
-                heroTitle.textContent += glitchChar;
-
-                setTimeout(() => {
-                    heroTitle.textContent = heroTitle.textContent.slice(0, -1) + char;
-                    i++;
-                    setTimeout(typeWithGlitch, 80);
-                }, 100);
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 70;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
             }
-        }
-
-        setTimeout(typeWithGlitch, 500);
-    }
+        });
+    });
 });

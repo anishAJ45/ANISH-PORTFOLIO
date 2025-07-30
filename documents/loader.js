@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
-    const text = "JAIANISH";
+    const text = "jaianish"; // Match the HTML content
     const glitchSymbols = "#$%@!&";
     const glitchElement = document.getElementById('glitch-loader');
     const revealDelay = 60; // ms per character
@@ -26,8 +26,24 @@ window.addEventListener('DOMContentLoaded', function() {
             } else {
                 // All revealed, wait then hide loader
                 setTimeout(() => {
-                    document.getElementById('loader').classList.add('hide');
-                    document.getElementById('main-content').style.display = 'block';
+                    const loader = document.getElementById('loader');
+                    const mainContent = document.getElementById('main-content');
+                    
+                    if (loader) {
+                        loader.style.opacity = '0';
+                        loader.style.pointerEvents = 'none';
+                    }
+                    
+                    if (mainContent) {
+                        mainContent.style.display = 'block';
+                    }
+                    
+                    // Remove loader after transition
+                    setTimeout(() => {
+                        if (loader) {
+                            loader.style.display = 'none';
+                        }
+                    }, 500);
                 }, 700);
             }
         }
