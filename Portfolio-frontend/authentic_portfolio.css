@@ -530,7 +530,14 @@ section {
     justify-content: center;
     z-index: 9999;
     font-family: 'Playfair Display', Georgia, serif;
-    transition: opacity 0.5s;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Main content initial state */
+#main-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 #loader h1 {
