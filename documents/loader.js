@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
-    const text = "jaianish"; // Match the HTML content
+    const text = "JAIANISH"; // Match the HTML content
     const glitchSymbols = "#$%@!&";
     const glitchElement = document.getElementById('glitch-loader');
     const revealDelay = 60; // ms per character
