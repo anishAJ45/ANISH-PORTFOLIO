@@ -1,0 +1,12 @@
+# Exclude documents folder
+documents/
+
+# Exclude index.html
+Portfolio-frontend/index.html
+
+# Common files to ignore
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+.env 
